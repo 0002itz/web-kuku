@@ -1,14 +1,15 @@
-import React from 'react';
 import FooterButton from "../components/Footer_button.jsx";
 
 const Footer = () => {
     return (
         <footer id="footer">
             <div className="p-5">
-                <div className="grid grid-cols-3 justify-center text-center p-5 font-light text-gray-500 sm:text-md darkt:text-gray-400">
+                <div className="grid grid-cols-3 justify-center text-center font-medium p-5 text-gray-500 sm:text-md darkt:text-gray-400">
                     <div>
-                    <FooterButton>
-                            <a href="/Terms&Conditions">Términos, Condiciones, Aviso de privacidad.</a>
+                        <a className="text-white" href="/">Kukulc4n.com © 2025 </a>
+                        <FooterButton>    
+                            <a href="/Terms&Conditions">Terms and Conditions</a>
+                            <a href="/PrivacyPolicy">Privacy Policy</a>
                         </FooterButton>
                     </div>
                     <div>
@@ -37,7 +38,7 @@ const Footer = () => {
                         </FooterButton>
                     </div>
                     <div>
-                        <h2>Web Made By:</h2>
+                        <h2 className="text-white">Web Made By:</h2>
                         <FooterButton>
                             0002itz
                         </FooterButton>
