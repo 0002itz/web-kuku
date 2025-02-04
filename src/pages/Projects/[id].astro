@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: {
+            id: project.slug,
+        },
+        props: {
+            project,
+        },
+    }));
+}
+const { project } = Astro.props;
+const { data } = project;
+const { title, done_by, tec_use } = data;
+const { Content } = await render(project);
+
+export const prerender = true;
+---
+
+<Layout title=`Kukulc4n • Projects-${data.title}`>
+    <h1>{title}</h1>
+    <p>{done_by}</p>
+    <p>{tec_use}</p>
+    <Content />
+</Layout>

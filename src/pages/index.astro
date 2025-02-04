@@ -1,12 +1,53 @@
 ---
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import HeaderMenu from "../components/ButtonMenu";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Alert from "../components/Alert.astro";
+
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+const contributors = await getCollection("contributors");
 ---
 
-<Layout title="Astro • Home">
-  <h1>Hola mundo</h1>
+<Layout title="Kukulc4n • Home">
+  <Alert />
+  <div
+    class="p-5 text-center grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+  >
+    <div>
+      <p class="p-4">Projects:</p>
+      {
+        projects.map((project) => {
+          const { slug, data } = project;
+          const { title, done_by, tec_use } = data;
+          return (
+            <article>
+              <a href={`/Projects/${slug}`}>
+                <h2>{title}</h2>
+                <p>By: {done_by}</p>
+                <p>{tec_use}</p>
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+    <div>
+      <p class="p-4">Contributors:</p>
+      {
+        contributors.map((contributors) => {
+          const { slug, data } = contributors;
+          const { colab_name, tec, email } = data;
+          return (
+            <article>
+              <a href={`${slug}`}>
+                <h2>{colab_name}</h2>
+                <p>{tec}</p>
+                <p>{email}</p>
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
 </Layout>
