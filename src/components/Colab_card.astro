@@ -1,0 +1,26 @@
+---
+interface Props {
+    colab_name: string;
+    tec: string;
+    email: string;
+    user_img: string;
+}
+const { colab_name, tec, email, user_img } = Astro.props;
+---
+
+<div
+    class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4 bg-indigo-500 border-2 rounded-lg border-grey-500"
+>
+    <img
+        class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
+        src={user_img}
+        alt=""
+    />
+    <div class="space-y-2 text-center sm:text-left">
+        <div class="space-y-0.5">
+            <p class="text-lg font-semibold text-black">{colab_name}</p>
+            <p class="font-medium text-white">{tec}</p>
+            <p class="font-medium text-white">{email}</p>
+        </div>
+    </div>
+</div>

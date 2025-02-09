@@ -13,38 +13,51 @@ const contributors = await getCollection("contributors");
   <div
     class="p-5 text-center grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
   >
-    <div>
+    <div class="conteiner">
       <p class="p-4">Projects:</p>
       {
         projects.map((project) => {
           const { slug, data } = project;
           const { title, done_by, tec_use } = data;
           return (
-            <article>
-              <a href={`/Projects/${slug}`}>
+            <div class="flex flex-wrap items-center justify-center">
+              <a
+                href={`/Projects/${slug}`}
+                class="bg-blue-400 gap-2 p-2 border-2 rounded-lg"
+              >
                 <h2>{title}</h2>
                 <p>By: {done_by}</p>
                 <p>{tec_use}</p>
               </a>
-            </article>
+            </div>
           );
         })
       }
     </div>
-    <div>
+    <div class="conteiner">
       <p class="p-4">Contributors:</p>
       {
-        contributors.map((contributors) => {
-          const { slug, data } = contributors;
-          const { colab_name, tec, email } = data;
+        contributors.map((contributor) => {
+          const { slug, data } = contributor;
+          const { colab_name, tec, email, user_img } = data;
           return (
-            <article>
-              <a href={`${slug}`}>
-                <h2>{colab_name}</h2>
-                <p>{tec}</p>
-                <p>{email}</p>
-              </a>
-            </article>
+            <a
+              href={`/${slug}`}
+              class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4 bg-indigo-500 border-2 rounded-lg border-grey-500"
+            >
+              <img
+                class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
+                src={user_img}
+                alt=""
+              />
+              <div class="space-y-2 text-center sm:text-left">
+                <div class="space-y-0.5">
+                  <p class="text-lg font-semibold text-black">{colab_name}</p>
+                  <p class="font-medium text-white">{tec}</p>
+                  <p class="font-medium text-white">{email}</p>
+                </div>
+              </div>
+            </a>
           );
         })
       }

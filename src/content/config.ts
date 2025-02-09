@@ -5,7 +5,7 @@ const contributors = defineCollection({
         colab_name: z.string(),
         tec: z.string(),
         email: z.string(),
-        // avatar_img: z.string(),
+        user_img: z.string(),
         // github: z.string(),
     })
 })

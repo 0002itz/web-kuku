@@ -1,4 +1,5 @@
 ---
+import ColabCard from "../components/Colab_card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
@@ -12,16 +13,23 @@ export async function getStaticPaths() {
         },
     }));
 }
+
 const { contributor } = Astro.props;
+
 const { data } = contributor;
-const { colab_name, tec, email } = data;
+const { colab_name, tec, email, user_img } = data;
+
 const { Content } = await render(contributor);
+
 export const prerender = true;
 ---
 
 <Layout title="Kukulc4n • Contributors">
-    <h1>{colab_name}</h1>
-    <p>{tec}</p>
-    <p>{email}</p>
+    <ColabCard
+        colab_name={colab_name}
+        tec={tec}
+        email={email}
+        user_img={user_img}
+    />
     <Content />
 </Layout>
