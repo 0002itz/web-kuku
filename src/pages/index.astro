@@ -1,6 +1,6 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import ColabCard from "../components/Colab_card.astro";
 import Alert from "../components/Alert.astro";
 
 import { getCollection } from "astro:content";
@@ -10,57 +10,44 @@ const contributors = await getCollection("contributors");
 
 <Layout title="Kukulc4n • Home">
   <Alert />
-  <div
-    class="p-5 text-center grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
-  >
-    <div class="conteiner">
-      <p class="p-4">Projects:</p>
+  <div class="conteiner text-center p-4 gap-4">
+    <p class="p-4">Projects:</p>
+    <div
+      class="lg:flex lg:felx-row md:flex md:flex-wrap flex flex-wrap place-self-center p-2 gap-4"
+    >
       {
         projects.map((project) => {
           const { slug, data } = project;
           const { title, done_by, tec_use } = data;
           return (
-            <div class="flex flex-wrap items-center justify-center">
-              <a
-                href={`/Projects/${slug}`}
-                class="bg-blue-400 gap-2 p-2 border-2 rounded-lg"
-              >
-                <h2>{title}</h2>
-                <p>By: {done_by}</p>
-                <p>{tec_use}</p>
-              </a>
-            </div>
-          );
-        })
-      }
-    </div>
-    <div class="conteiner">
-      <p class="p-4">Contributors:</p>
-      {
-        contributors.map((contributor) => {
-          const { slug, data } = contributor;
-          const { colab_name, tec, email, user_img } = data;
-          return (
             <a
-              href={`/${slug}`}
-              class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4 bg-indigo-500 border-2 rounded-lg border-grey-500"
+              href={`/Projects/${slug}`}
+              class="min-w-min max-w-fit bg-blue-400 gap-2 p-1 border-2 rounded-lg"
             >
-              <img
-                class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
-                src={user_img}
-                alt=""
-              />
-              <div class="space-y-2 text-center sm:text-left">
-                <div class="space-y-0.5">
-                  <p class="text-lg font-semibold text-black">{colab_name}</p>
-                  <p class="font-medium text-white">{tec}</p>
-                  <p class="font-medium text-white">{email}</p>
-                </div>
-              </div>
+              <h2>{title}</h2>
+              <p>By: {done_by}</p>
+              <p>{tec_use}</p>
             </a>
           );
         })
       }
     </div>
+  </div>
+  <div class="conteiner">
+    <p id="Contributors" class="p-4">Contributors:</p>
+    {
+      contributors.map((contributor) => {
+        const { slug, data } = contributor;
+        const { colab_name, tec, email, user_img } = data;
+        return (
+          <ColabCard
+            colab_name={colab_name}
+            handle_tec={tec}
+            colab_email={email}
+            colab_img={user_img}
+          />
+        );
+      })
+    }
   </div>
 </Layout>

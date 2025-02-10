@@ -1,11 +1,11 @@
 ---
 interface Props {
     colab_name: string;
-    tec: string;
-    email: string;
-    user_img: string;
+    handle_tec: string;
+    colab_email: string;
+    colab_img: string;
 }
-const { colab_name, tec, email, user_img } = Astro.props;
+const { colab_name, handle_tec, colab_email, colab_img } = Astro.props;
 ---
 
 <div
@@ -13,14 +13,14 @@ const { colab_name, tec, email, user_img } = Astro.props;
 >
     <img
         class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
-        src={user_img}
+        src={colab_img}
         alt=""
     />
     <div class="space-y-2 text-center sm:text-left">
         <div class="space-y-0.5">
             <p class="text-lg font-semibold text-black">{colab_name}</p>
-            <p class="font-medium text-white">{tec}</p>
-            <p class="font-medium text-white">{email}</p>
+            <p class="font-medium text-white">{handle_tec}</p>
+            <p class="font-medium text-white">{colab_email}</p>
         </div>
     </div>
 </div>
