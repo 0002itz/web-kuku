@@ -1,7 +1,7 @@
 ---
-title: Kuku-Chats
-done_by: 0002itz
-tec_use: React, Fastapi, Docker
+p_name: KukuChats
+m_by: 0002itz
+t_use: React, Fastapi, Docker
 leg: Esp
 #image:
 ---

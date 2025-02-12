@@ -12,9 +12,10 @@ const contributors = defineCollection({
 
 const projects = defineCollection({
     schema: z.object({
-        title: z.string(),
-        done_by: z.string(),
-        tec_use: z.string(),
+        p_name: z.string(),
+        m_by: z.string(),
+        t_use: z.string(),
+        leg: z.string(),
         //image: z.string(),
     })
 })

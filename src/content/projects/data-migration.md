@@ -1,7 +1,7 @@
 ---
-title: Data Migration
-done_by: 0002itz
-tec_use: Py & Docker.
+p_name: Data Migration
+m_by: 0002itz
+t_use: Py & Docker.
 leg: Esp
 #github:
 #image

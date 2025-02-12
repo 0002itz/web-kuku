@@ -1,7 +1,7 @@
 ---
-title: prv 
-done_by: 0002itz
-tec_use: React, Fastapi, Docker
+p_name: prv 
+m_by: 0002itz
+t_use: React, Fastapi, Docker
 leg: Esp
 #image:
 ---

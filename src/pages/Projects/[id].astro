@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CardProject from "../../components/Card_project.astro";
 
 import { getCollection, render } from "astro:content";
 
@@ -16,15 +17,13 @@ export async function getStaticPaths() {
 }
 const { project } = Astro.props;
 const { data } = project;
-const { title, done_by, tec_use } = data;
+const { p_name, m_by, t_use } = data;
 const { Content } = await render(project);
 
 export const prerender = true;
 ---
 
-<Layout title=`Kukulc4n • Projects-${data.title}`>
-    <h1>{title}</h1>
-    <p>{done_by}</p>
-    <p>{tec_use}</p>
+<Layout title=`Kukulc4n • Projects-${data.p_name}`>
+    <CardProject project_name={p_name} made_by={m_by} tec_use={t_use} />
     <Content />
 </Layout>

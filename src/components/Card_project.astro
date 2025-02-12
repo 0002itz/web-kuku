@@ -1,0 +1,32 @@
+---
+interface CardProyectProps {
+    project_name: string;
+    made_by: string;
+    //img: string;
+    tec_use: string;
+}
+
+const { project_name, made_by, tec_use } = Astro.props;
+---
+
+<div
+    class="min-w-min max-w-fit bg-blue-400 gap-2 p-1 border-2 rounded-lg place-self-center"
+>
+    <div class="grid grid-cols-1 gap-2 p-2">
+        <h1
+            id="current_img"
+            class="bg-red-600 items-center text-center top-7 z-10"
+        >
+            current_img
+        </h1>
+        <ol class="grid grid-cols-2 gap-2">
+            <li id="Last_img"><h1 class="text-start">Last_img</h1></li>
+            <li id="Next_img"><h1 class="text-end">Next_img</h1></li>
+        </ol>
+    </div>
+    <div class="place-items-start">
+        <h2>Project: {project_name}</h2>
+        <p>By: {made_by}</p>
+        <p>Tec invol: {tec_use}</p>
+    </div>
+</div>
