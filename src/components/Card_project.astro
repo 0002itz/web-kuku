@@ -10,19 +10,60 @@ const { project_name, made_by, tec_use } = Astro.props;
 ---
 
 <div
-    class="min-w-min max-w-fit bg-blue-400 gap-2 p-1 border-2 rounded-lg place-self-center"
+    class="min-w-min max-w-fit bg-blue-400 gap-2 p-1 border-2 rounded-lg place-self-center relative mx-auto"
 >
-    <div class="grid grid-cols-1 gap-2 p-2">
-        <h1
-            id="current_img"
-            class="bg-red-600 items-center text-center top-7 z-10"
-        >
-            current_img
-        </h1>
-        <ol class="grid grid-cols-2 gap-2">
-            <li id="Last_img"><h1 class="text-start">Last_img</h1></li>
-            <li id="Next_img"><h1 class="text-end">Next_img</h1></li>
-        </ol>
+    <div class="grid grid-row gap-2 p-2 mySlides fade">
+        <div class="numbertext absolute top-0 text-white text-xs p-2">
+            1 / 3
+        </div>
+        <img
+            src="no_foto_user.PNG"
+            alt="project_image"
+            class="rounded-lg w-1/2 mx-auto"
+        />
+    </div>
+    <div class="gap-2 p-2 mySlides fade hidden">
+        <div class="numbertext absolute top-0 text-white text-xs p-2">
+            2 / 3
+        </div>
+        <img
+            src="no_foto_user.PNG"
+            alt="project_image"
+            class="rounded-lg w-1/2 mx-auto"
+        />
+    </div>
+    <div class="gap-2 p-2 mySlides fade hidden">
+        <div class="numbertext absolute top-0 text-white text-xs p-2">
+            3 / 3
+        </div>
+        <img
+            src="no_foto_user.PNG"
+            alt="project_image"
+            class="rounded-lg w-1/2 mx-auto"
+        />
+    </div>
+
+    <div
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 cursor-pointer text-white font-bold text-lg p-4 rounded-r-md transition duration-600 ease-in-out hover:bg-black/80"
+    >
+        <span class="prev" onclick="currentslider(-1)">&#10094;</span>
+    </div>
+    <div
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 cursor-pointer text-white font-bold text-lg p-4 rounded-l-md transition duration-600 ease-in-out hover:bg-black/80"
+    >
+        <span class="next" onclick="currentslider(1)">&#10095;</span>
+    </div>
+
+    <div class="absolute bottom-2 w-full text-center">
+        <span
+            class="dot h-4 w-4 mx-1 bg-gray-400 rounded-full inline-block cursor-pointer transition duration-600 ease-in-out hover:bg-gray-600"
+            onclick="currentslider(0)"></span>
+        <span
+            class="dot h-4 w-4 mx-1 bg-gray-400 rounded-full inline-block cursor-pointer transition duration-600 ease-in-out hover:bg-gray-600"
+            onclick="currentslider(1)"></span>
+        <span
+            class="dot h-4 w-4 mx-1 bg-gray-400 rounded-full inline-block cursor-pointer transition duration-600 ease-in-out hover:bg-gray-600"
+            onclick="currentslider(2)"></span>
     </div>
     <div class="place-items-start">
         <h2>Project: {project_name}</h2>
