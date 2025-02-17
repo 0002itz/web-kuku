@@ -11,17 +11,17 @@ const contributors = await getCollection("contributors");
 
 <Layout title="Kukulc4n • Home">
   <Alert />
-  <div class="conteiner text-center p-4 gap-4">
+  <div class="text-center p-4 gap-4">
     <p class="p-4">Projects:</p>
     <div
-      class="lg:flex lg:felx-row md:flex md:flex-wrap flex flex-wrap place-self-center p-2 gap-4"
+      class="conteiner lg:flex lg:felx-row md:flex md:flex-wrap flex flex-wrap place-self-center p-2 gap-4"
     >
       {
         projects.map((project) => {
           const { slug, data } = project;
           const { p_name, m_by, t_use } = data;
           return (
-            <a href={`/Projects/${slug}`}>
+            <a>
               <CardProject
                 project_name={p_name}
                 made_by={m_by}
