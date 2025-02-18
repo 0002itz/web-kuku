@@ -5,25 +5,39 @@ interface CardProyectProps {
     //img: string;
     tec_use: string;
 }
-
 const { project_name, made_by, tec_use } = Astro.props;
 ---
 
 <div
-    class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg"
+    class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative"
 >
     <div class="justify-self-center p-2">
-        <div class="size-32 flex flex-nowrap">
+        <div class="index_slider size-32">
             <img src="no_foto_user.PNG" />
             <img src="Valeriana.png" />
         </div>
     </div>
-    <div class="grid grid-rows-1 relative flex-nowrap py-2">
-        <button id="Prev" class="absolute top-1/2 left-0">⬅</button>
 
-        <button id="Next" class="absolute top-1/2 right-0">➡</button>
-    </div>
+    <button id="prev" class="absolute group-hover:block top-1/2 left-0"
+        >⬅</button
+    >
 
+    <button id="next" class="absolute top-1/2 right-0">➡</button>
+
+    <script>
+        let slider = document.getElementsByClassName(
+            "index_slider",
+        )[0] as HTMLElement;
+        let nextBtn = document.getElementById("next");
+        let prevBtn = document.getElementById("prev");
+
+        nextBtn.onclick = () => {
+            slider.append(slider.querySelector("img:first-child"));
+        };
+        prevBtn.onclick = () => {
+            slider.prepend(slider.querySelector("img:last-child"));
+        };
+    </script>
     <div class="place-items-start p-2">
         <h2>Project: {project_name}</h2>
         <p>By: {made_by}</p>
