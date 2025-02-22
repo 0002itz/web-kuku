@@ -1,5 +1,6 @@
 ---
 interface CardProyectProps {
+    slug: string;
     project_name: string;
     made_by: string;
     //img: string;
@@ -9,7 +10,7 @@ const { project_name, made_by, tec_use } = Astro.props;
 ---
 
 <div
-    class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative"
+    class="container min-w-min max-w-fit felx flex-col object-center bg-blue-400 border-2 rounded-lg relative"
 >
     <div class="justify-self-center p-2">
         <div class="index_slider size-32">
@@ -18,25 +19,36 @@ const { project_name, made_by, tec_use } = Astro.props;
         </div>
     </div>
 
-    <button id="prev" class="absolute group-hover:block top-1/2 left-0"
+    <button id={`button_prev`} class="absolute group-hover:block top-1/2 left-0"
         >⬅</button
     >
 
-    <button id="next" class="absolute top-1/2 right-0">➡</button>
+    <button id={`button_next`} class="absolute top-1/2 right-0">➡</button>
 
     <script>
-        let slider = document.getElementsByClassName(
-            "index_slider",
-        )[0] as HTMLElement;
-        let nextBtn = document.getElementById("next");
-        let prevBtn = document.getElementById("prev");
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.querySelector(
+                ".index_slider",
+            ) as HTMLElement;
 
-        nextBtn.onclick = () => {
-            slider.append(slider.querySelector("img:first-child"));
-        };
-        prevBtn.onclick = () => {
-            slider.prepend(slider.querySelector("img:last-child"));
-        };
+            let nextBtn = document.getElementById(`button_next`);
+            let prevBtn = document.getElementById(`button_prev`);
+
+            if (slider && nextBtn && prevBtn) {
+                // Verifica que los elementos existen antes de asignar los eventos.
+                nextBtn.onclick = () => {
+                    slider.append(slider.querySelector("img:first-child"));
+                };
+
+                prevBtn.onclick = () => {
+                    slider.prepend(slider.querySelector("img:last-child"));
+                };
+            } else {
+                console.error(
+                    "Alguno de los elementos del slider no se encontró.",
+                );
+            }
+        });
     </script>
     <div class="place-items-start p-2">
         <h2>Project: {project_name}</h2>
