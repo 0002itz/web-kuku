@@ -21,13 +21,13 @@ const contributors = await getCollection("contributors");
           const { slug, data } = project;
           const { p_name, m_by, t_use } = data;
           return (
-            <a href={`/Projects/${slug}`}>
-              <Preview_project
-                project_name={p_name}
-                made_by={m_by}
-                tec_use={t_use}
-              />
-            </a>
+            //<a href={`/Projects/${slug}`}>
+            <Preview_project
+              project_name={p_name}
+              made_by={m_by}
+              tec_use={t_use}
+            />
+            //</a>
           );
         })
       }
