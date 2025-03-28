@@ -10,11 +10,9 @@ const { project_name, made_by, tec_use } = Astro.props;
 <div
     class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative"
 >
-    <div class="justify-self-center p-2">
-        <div class="index_slider size-32">
-            <img src="no_foto_user.PNG" />
-            <img src="Valeriana.png" class="[&:not(:first-child)]:hidden" />
-        </div>
+    <div class="slider justify-self-center p-2 size-32">
+        <img src="no_foto_user.PNG" />
+        <img src="Valeriana.png" />
     </div>
     <button id={`button_prev`} class="absolute group-hover:block top-1/2 left-0"
         >⬅</button
@@ -23,7 +21,9 @@ const { project_name, made_by, tec_use } = Astro.props;
     <button id={`button_next`} class="absolute top-1/2 right-0">➡</button>
 
     <script>
-        let slider = document.getElementsByClassName("index_slider");
+        let slider = document.getElementsByClassName(
+            "slider",
+        )[0] as HTMLElement;
 
         let nextBtn = document.getElementById(`button_next`);
         let prevBtn = document.getElementById(`button_prev`);

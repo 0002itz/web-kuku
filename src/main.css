@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .slider {
+        img:not(img:first-child) {
+            display: none;
+        }
+    }
+}
