@@ -11,41 +11,28 @@ const { project_name, made_by, tec_use } = Astro.props;
     class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative"
 >
     <div class="slider justify-self-center p-2 size-32">
-        <img src="no_foto_user.PNG" class="active" />
+        <img src="no_foto_user.PNG" class="acctive" />
         <img src="Valeriana.png" />
     </div>
-    <button id={`button_prev`} class="absolute group-hover:block top-1/2 left-0"
-        >⬅</button
-    >
+    <button id={`button_prev`} class="absolute top-1/2 left-0">⬅</button>
 
     <button id={`button_next`} class="absolute top-1/2 right-0">➡</button>
 
     <script>
-        const slider = document.querySelector(".slider");
-        const images = slider.querySelectorAll("img");
-        const nextBtn = document.getElementById("button_next");
-        const prevBtn = document.getElementById("button_prev");
+        let slider = document.getElementsByClassName(
+            "slider",
+        )[0] as HTMLElement;
 
-        let currentIndex = 0;
-
-        function updateActiveImage() {
-            images.forEach((img, index) => {
-                img.classList.toggle("active", index === currentIndex);
-            });
-        }
+        let nextBtn = document.getElementById(`button_next`);
+        let prevBtn = document.getElementById(`button_prev`);
 
         nextBtn.onclick = () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateActiveImage();
+            slider.append(slider.querySelector("img:first-child"));
         };
 
         prevBtn.onclick = () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateActiveImage();
+            slider.prepend(slider.querySelector("img:last-child"));
         };
-
-        // Inicializar la imagen activa
-        updateActiveImage();
     </script>
     <div class="place-items-start p-2">
         <h2>Project: {project_name}</h2>

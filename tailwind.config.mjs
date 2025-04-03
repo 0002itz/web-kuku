@@ -15,18 +15,11 @@ export default {
 				},
 				'.slider img': {
 					position: 'absolute',
-					inset: '0',
-					width: '100%',
-					height: '100%',
 					'object-fit': 'cover',
-					transition: 'transform 0.5s ease-in-out',
 				},
-				'.slider img:not(:first-child)': {
-					transform: 'translateX(100%)',
-				},
-				'.slider img.active': {
-					transform: 'translateX(0)',
-				},
+				'.slider img:not(img:first-child)': {
+					display: 'none;'
+				}
 			};
 			addUtilities(newUtilities)
 		},
