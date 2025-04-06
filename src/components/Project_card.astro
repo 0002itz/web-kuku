@@ -1,21 +1,31 @@
 ---
+import type { ImageMetadata } from "astro";
+import Image from "astro/components/Image.astro";
+
 interface CardProyectProps {
     slug: string;
     project_name: string;
     made_by: string;
-    //img: string;
+    imagePath: string;
     tec_use: string;
 }
-const { project_name, made_by, tec_use } = Astro.props;
+const { project_name, made_by, tec_use, imagePath } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/*.{jpeg,jpg,png,gif}",
+);
+if (!images[imagePath])
+    throw new Error(
+        `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
+    );
 ---
 
 <div
     class="container min-w-min max-w-fit felx flex-col object-center bg-blue-400 border-2 rounded-lg relative"
 >
     <div class="justify-self-center p-2">
-        <div class="index_slider size-32">
-            <img src="no_foto_user.PNG" />
-            <img src="Valeriana.png" />
+        <div class="slider size-32">
+            <Image src={imagePath} />
+            <Image src={imagePath} />
         </div>
     </div>
 
