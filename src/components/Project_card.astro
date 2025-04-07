@@ -1,22 +1,13 @@
 ---
-import type { ImageMetadata } from "astro";
-import Image from "astro/components/Image.astro";
-
 interface CardProyectProps {
     slug: string;
     project_name: string;
     made_by: string;
-    imagePath: string;
     tec_use: string;
+    //content: string;
 }
-const { project_name, made_by, tec_use, imagePath } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/*.{jpeg,jpg,png,gif}",
-);
-if (!images[imagePath])
-    throw new Error(
-        `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`,
-    );
+const { project_name, made_by, tec_use } = Astro.props;
+const { slug } = Astro.props;
 ---
 
 <div
@@ -24,38 +15,37 @@ if (!images[imagePath])
 >
     <div class="justify-self-center p-2">
         <div class="slider size-32">
-            <Image src={imagePath} />
-            <Image src={imagePath} />
+            <img src="no_foto_user.PNG" />
+            <img src="data-migration.png" />
         </div>
     </div>
 
-    <button id={`button_prev`} class="absolute group-hover:block top-1/2 left-0"
-        >⬅</button
-    >
+    <button id={`button_prev`} class="absolute top-1/2 left-0">⬅</button>
 
     <button id={`button_next`} class="absolute top-1/2 right-0">➡</button>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const slider = document.querySelector(
-                ".index_slider",
-            ) as HTMLElement;
+        let slider = document.getElementsByClassName(
+            "slider",
+        )[0] as HTMLElement;
 
-            let nextBtn = document.getElementById(`button_next`);
-            let prevBtn = document.getElementById(`button_prev`);
+        let nextBtn = document.getElementById(`button_next`);
+        let prevBtn = document.getElementById(`button_prev`);
 
-            nextBtn.onclick = () => {
-                slider.append(slider.querySelector("img:first-child"));
-            };
+        nextBtn.onclick = () => {
+            slider.append(slider.querySelector("img:first-child"));
+        };
 
-            prevBtn.onclick = () => {
-                slider.prepend(slider.querySelector("img:last-child"));
-            };
-        });
+        prevBtn.onclick = () => {
+            slider.prepend(slider.querySelector("img:last-child"));
+        };
     </script>
     <div class="place-items-start p-2">
         <h2>Project: {project_name}</h2>
         <p>By: {made_by}</p>
         <p>Tec invol: {tec_use}</p>
+    </div>
+    <div class="p-2">
+        {slug}
     </div>
 </div>
