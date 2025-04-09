@@ -4,9 +4,9 @@ interface CardProyectProps {
     project_name: string;
     made_by: string;
     tec_use: string;
-    //content: string;
+    content: string;
 }
-const { project_name, made_by, tec_use } = Astro.props;
+const { project_name, made_by, tec_use, content } = Astro.props;
 const { slug } = Astro.props;
 ---
 
@@ -44,8 +44,5 @@ const { slug } = Astro.props;
         <h2>Project: {project_name}</h2>
         <p>By: {made_by}</p>
         <p>Tec invol: {tec_use}</p>
-    </div>
-    <div class="p-2">
-        {slug}
     </div>
 </div>
