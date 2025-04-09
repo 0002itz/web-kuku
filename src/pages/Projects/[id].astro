@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "../../components/Project_card.astro";
+import PreviwProjectCard from "../../components/Preview_project_card.jsx";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -28,7 +28,7 @@ export const prerender = true;
 <Layout title=`Kukulc4n • Projects-${data.p_name}`>
     <div class="flex flex-grow-2">
         <div class="p-2">
-            <ProjectCard
+            <PreviwProjectCard
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}
@@ -36,7 +36,6 @@ export const prerender = true;
                 content={Content}
             />
         </div>
-
         <div class="center p-2 py-14">
             <Content />
         </div>

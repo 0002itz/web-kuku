@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ColabCard from "../components/Colab_card.astro";
-import Preview_project from "../components/Preview_project_card.astro";
+import PreviwProjectCard from "../components/Preview_project_card.jsx";
 import Alert from "../components/Alert.astro";
 
 import { getCollection } from "astro:content";
@@ -22,7 +22,8 @@ const contributors = await getCollection("contributors");
           const { p_name, m_by, t_use } = data;
           return (
             <a href={`/Projects/${slug}`}>
-              <Preview_project
+              <PreviwProjectCard
+                client:idle
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}
