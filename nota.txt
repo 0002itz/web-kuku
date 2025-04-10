@@ -372,3 +372,100 @@ const PreviewProjectCard = ({ project_name, made_by, tec_use }) => {
 };
 
 export default PreviewProjectCard;
+----------
+import React, { useEffect } from "react";
+
+const PreviewProjectCard = ({ project_name, made_by, tec_use }) => {
+    useEffect(() => {
+        const slider = document.getElementsByClassName("slider")[0];
+        const nextBtn = document.getElementById("button_next");
+        const prevBtn = document.getElementById("button_prev");
+
+        const moveToNextSlide = () => {
+            slider.append(slider.querySelector("img:first-child"));
+        };
+
+        const moveToPrevSlide = () => {
+            slider.prepend(slider.querySelector("img:last-child"));
+        };
+
+        nextBtn.onclick = moveToNextSlide;
+        prevBtn.onclick = moveToPrevSlide;
+
+        const interval = setInterval(moveToNextSlide, 10000);
+
+        return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+    }, []);
+
+    return (
+        <div className="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative">
+            <div className="slider justify-self-center p-2 size-32">
+                <img src="no_foto_user.PNG" className="active" alt="Slide 1" />
+                <img src="data-migration.png" alt="Slide 2" />
+            </div>
+
+            <button id="button_prev" className="hidden absolute top-1/2 left-0">
+                ⬅
+            </button>
+
+            <button id="button_next" className="hidden absolute top-1/2 right-0">
+                ➡
+            </button>
+
+            <div className="place-items-start p-2">
+                <h2>Project: {project_name}</h2>
+                <p>By: {made_by}</p>
+                <p>Tec invol: {tec_use}</p>
+            </div>
+        </div>
+    );
+};
+
+export default PreviewProjectCard;
+----working
+import React, { useState, useEffect } from "react";
+
+const PreviewProjectCard = ({ project_name, made_by, tec_use }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const images = ["no_foto_user.PNG", "data-migration.png"];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    return (
+        <div className="min-w-min max-w-fit flex flex-col items-center bg-blue-400 border-2 rounded-lg relative">
+            <div className="justify-self-center p-2 size-32 relative">
+                {images.map((src, index) => (
+                    <img
+
+                        key={index}
+                        src={src}
+                        alt={`Slide ${index + 1}`}
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            zIndex: index === currentIndex ? 1 : 0,
+                            opacity: index === currentIndex ? 1 : 0,
+                        }}
+                    />
+                ))}
+            </div>
+            <div className="place-items-start p-2">
+                <h2>Project: {project_name}</h2>
+                <p>By: {made_by}</p>
+                <p>Tec invol: {tec_use}</p>
+            </div>
+        </div>
+    );
+};
+
+export default PreviewProjectCard;

@@ -1,39 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const PreviewProjectCard = ({ project_name, made_by, tec_use }) => {
+const ProjectCard = ({ project_name, made_by, tec_use }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const images = ["no_foto_user.PNG", "data-migration.png"];
+
+    // Función para mover al siguiente slide
+    const moveToNextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    // Función para mover al slide anterior
+    const moveToPrevSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+    };
+
+    // Cambiar automáticamente cada 10 segundos
     useEffect(() => {
-        const slider = document.getElementsByClassName("slider")[0];
-        const nextBtn = document.getElementById("button_next");
-        const prevBtn = document.getElementById("button_prev");
-
-        const moveToNextSlide = () => {
-            slider.append(slider.querySelector("img:first-child"));
-        };
-
-        const moveToPrevSlide = () => {
-            slider.prepend(slider.querySelector("img:last-child"));
-        };
-
-        nextBtn.onclick = moveToNextSlide;
-        prevBtn.onclick = moveToPrevSlide;
-
         const interval = setInterval(moveToNextSlide, 10000);
-
         return () => clearInterval(interval); // Limpiar el intervalo al desmontar
     }, []);
 
     return (
-        <div className="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative">
-            <div className="slider justify-self-center p-2 size-32">
-                <img src="no_foto_user.PNG" className="acctive" alt="Slide 1" />
-                <img src="data-migration.png" alt="Slide 2" />
+        <div className="container min-w-min max-w-fit flex flex-col items-center bg-blue-400 border-2 rounded-lg relative">
+            <div className="justify-self-center p-2">
+                <div className="size-32 relative overflow-hidden">
+                    {images.map((src, index) => (
+                        <img
+                            key={index}
+                            src={src}
+                            alt={`Slide ${index + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out ${index === currentIndex
+                                ? "translate-x-0"
+                                : "translate-x-full"
+                                }`}
+                        />
+                    ))}
+                </div>
             </div>
 
-            <button id="button_prev" className="hidden absolute top-1/2 left-0">
+            <button
+                onClick={moveToPrevSlide}
+                className="hidden absolute top-1/2 left-0 transform -translate-y-1/2"
+            >
                 ⬅
             </button>
 
-            <button id="button_next" className="hidden absolute top-1/2 right-0">
+            <button
+                onClick={moveToNextSlide}
+                className="hidden absolute top-1/2 right-0 transform -translate-y-1/2"
+            >
                 ➡
             </button>
 
@@ -46,4 +64,4 @@ const PreviewProjectCard = ({ project_name, made_by, tec_use }) => {
     );
 };
 
-export default PreviewProjectCard;
+export default ProjectCard;
