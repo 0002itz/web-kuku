@@ -5,8 +5,9 @@ interface CardProyectProps {
     made_by: string;
     tec_use: string;
     content: string;
+    images: string[];
 }
-const { project_name, made_by, tec_use, content } = Astro.props;
+const { project_name, made_by, tec_use, images } = Astro.props;
 const { slug } = Astro.props;
 ---
 
@@ -15,8 +16,12 @@ const { slug } = Astro.props;
 >
     <div class="justify-self-center p-2">
         <div class="slider size-32">
-            <img src="no_foto_user.PNG" />
-            <img src="data-migration.png" />
+            {
+                Array.isArray(images) &&
+                    images.map((image, index) => (
+                        <img src={image} alt={`Image ${index + 1}`} />
+                    ))
+            }
         </div>
     </div>
 

@@ -16,7 +16,7 @@ const projects = defineCollection({
         m_by: z.string(),
         t_use: z.string(),
         leg: z.string(),
-        //image: z.string(),
+        images: z.array(z.string()),
     })
 })
 

@@ -1,5 +1,5 @@
 ---
-import PreviwProjectCard from "../../components/Preview_project_card.jsx";
+import PreviwProjectCard from "../../components/Project_card.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -14,13 +14,10 @@ export async function getStaticPaths() {
         },
     }));
 }
-const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/*.{jpeg,jpg,png,gif}",
-);
 
 const { project } = Astro.props;
 const { data } = project;
-const { p_name, m_by, t_use } = data;
+const { p_name, m_by, t_use, images } = data;
 const { Content } = await render(project);
 export const prerender = true;
 ---
@@ -32,8 +29,7 @@ export const prerender = true;
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}
-                imagePath={`/src/assets/${project.slug}.png`}
-                content={Content}
+                images={images}
             />
         </div>
         <div class="center p-2 py-14">
