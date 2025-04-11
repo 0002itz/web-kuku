@@ -37,13 +37,18 @@ const { slug } = Astro.props;
         let nextBtn = document.getElementById(`button_next`);
         let prevBtn = document.getElementById(`button_prev`);
 
-        nextBtn.onclick = () => {
+        const moveToNextSlide = () => {
             slider.append(slider.querySelector("img:first-child"));
         };
 
-        prevBtn.onclick = () => {
+        const moveToPrevSlide = () => {
             slider.prepend(slider.querySelector("img:last-child"));
         };
+
+        nextBtn.onclick = moveToNextSlide;
+        prevBtn.onclick = moveToPrevSlide;
+
+        setInterval(moveToNextSlide, 10000);
     </script>
     <div class="place-items-start p-2">
         <h2>Project: {project_name}</h2>

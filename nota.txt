@@ -1,0 +1,52 @@
+PreviewProjectCard.astro
+---
+interface preview_project_Props {
+    project_name: string;
+    made_by: string;
+    tec_use: string;
+}
+const { project_name, made_by, tec_use } = Astro.props;
+---
+
+<div
+    class="min-w-min max-w-fit felx flex-col items-center bg-blue-400 border-2 rounded-lg relative"
+>
+    <div class="slider justify-self-center p-2 size-32">
+        <img src="no_foto_user.PNG" class="acctive" />
+        <img src="data-migration.png" />
+    </div>
+
+    <button id={`button_prev`} class="hidden absolute top-1/2 left-0">⬅</button
+    >
+
+    <button id={`button_next`} class="hidden absolute top-1/2 right-0"
+        >➡</button
+    >
+
+    <script>
+        let slider = document.getElementsByClassName(
+            "slider",
+        )[0] as HTMLElement;
+
+        let nextBtn = document.getElementById(`button_next`);
+        let prevBtn = document.getElementById(`button_prev`);
+
+        const moveToNextSlide = () => {
+            slider.append(slider.querySelector("img:first-child"));
+        };
+
+        const moveToPrevSlide = () => {
+            slider.prepend(slider.querySelector("img:last-child"));
+        };
+
+        nextBtn.onclick = moveToNextSlide;
+        prevBtn.onclick = moveToPrevSlide;
+
+        setInterval(moveToNextSlide, 10000);
+    </script>
+    <div class="place-items-start p-2">
+        <h2>Project: {project_name}</h2>
+        <p>By: {made_by}</p>
+        <p>Tec invol: {tec_use}</p>
+    </div>
+</div>
