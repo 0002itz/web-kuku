@@ -19,7 +19,7 @@ const contributors = await getCollection("contributors");
       {
         projects.map((project) => {
           const { slug, data } = project;
-          const { p_name, m_by, t_use } = data;
+          const { p_name, m_by, t_use, images } = data;
           return (
             <a href={`/Projects/${slug}`}>
               <PreviwProjectCard
@@ -27,6 +27,7 @@ const contributors = await getCollection("contributors");
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}
+                images={images}
               />
             </a>
           );
