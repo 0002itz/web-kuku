@@ -1,9 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/Preview_project_card.jsx";
+
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
 ---
 
 <Layout title="kukulc4n • All Projects">
-    <h1 class="text-center text-4xl p-4">
-        <article>Hola Homi 🐱‍👤</article>
-    </h1>
+    <article>
+        <h1 class="text-center text-4xl p-4">ALL Projects</h1>
+        <div
+            class="conteiner flex flex-wrap md:flex md:flex-wrap place-self-center p-2 gap-4"
+        >
+            {
+                projects.map((projects) => {
+                    const { slug, data } = projects;
+                    const { p_name, m_by, t_use, images } = data;
+                    return (
+                        <a href={`/Projects/${slug}`}>
+                            <ProjectCard
+                                client:idle
+                                project_name={p_name}
+                                made_by={m_by}
+                                tec_use={t_use}
+                                images={images}
+                            />
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </article>
 </Layout>
