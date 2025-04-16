@@ -19,7 +19,11 @@ const { slug } = Astro.props;
             {
                 Array.isArray(images) &&
                     images.map((image, index) => (
-                        <img src={image} alt={`Image ${index + 1}`} />
+                        <img
+                            src={image}
+                            alt={`Image ${index + 1}`}
+                            class="w-32 h-32 rounded-md"
+                        />
                     ))
             }
         </div>

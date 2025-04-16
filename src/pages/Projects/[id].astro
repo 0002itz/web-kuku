@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "../../components/Project_card.astro";
+import ProjectCard from "../../components/Project_card.jsx";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -26,6 +26,7 @@ export const prerender = true;
     <div class="flex flex-grow-2">
         <div class="p-2">
             <ProjectCard
+                client:idle
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}

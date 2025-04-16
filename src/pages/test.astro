@@ -1,0 +1,25 @@
+---
+import ProjectCard from "../components/Project_card.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+---
+
+<Layout title="Kukulc4n • Test">
+    <div class="flex flex-grow-2 gap-3">
+        {
+            projects.map((project) => {
+                const { data, slug } = project;
+                const { p_name, m_by, t_use, images } = data;
+                return (
+                    <ProjectCard
+                        project_name={p_name}
+                        made_by={m_by}
+                        tec_use={t_use}
+                        images={images}
+                    />
+                );
+            })
+        }
+    </div>
+</Layout>
