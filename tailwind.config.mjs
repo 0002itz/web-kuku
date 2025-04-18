@@ -3,7 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,css}'],
 	theme: {
 		extend: {
-
+			colors: {
+				p_card: "rgba(var(--p_card_bg))",
+			}
 		},
 	},
 	plugins: [

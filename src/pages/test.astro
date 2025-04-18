@@ -13,6 +13,7 @@ const projects = await getCollection("projects");
                 const { p_name, m_by, t_use, images } = data;
                 return (
                     <ProjectCard
+                        key={slug}
                         project_name={p_name}
                         made_by={m_by}
                         tec_use={t_use}

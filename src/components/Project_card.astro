@@ -1,4 +1,5 @@
 ---
+import "../styles/main.css";
 interface CardProyectProps {
     slug: string;
     project_name: string;
@@ -12,7 +13,7 @@ const { slug } = Astro.props;
 ---
 
 <div
-    class="container min-w-min max-w-fit felx flex-col object-center bg-blue-400 border-2 rounded-lg relative"
+    class="container min-w-min max-w-fit felx flex-col object-center bg-p_card border-2 rounded-lg relative"
 >
     <div class="justify-self-center p-2">
         <div class="slider size-32">
@@ -21,7 +22,7 @@ const { slug } = Astro.props;
                     images.map((image, index) => (
                         <img
                             src={image}
-                            alt={`Image ${index + 1}`}
+                            alt={`Image ${slug + 1}`}
                             class="w-32 h-32 rounded-md"
                         />
                     ))
