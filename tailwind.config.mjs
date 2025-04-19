@@ -4,9 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				P_card: "rgba(var(--p_card_bg))",
-				L_bg: "rgba(var(--l_bg))",
+				P_card: "rgba(var(--project_bg_card))",
+				L_bg: "rgba(var(--layout_bg))",
 				Bt_bg: "rgba(var(--bt_bg))",
+				Title_color: "rgba(var(--title_color))",
+				Subtitle_color: "rgba(var(--subtitle_color))",
 			}
 		},
 	},

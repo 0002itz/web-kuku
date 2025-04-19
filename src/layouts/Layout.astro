@@ -19,7 +19,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-L_bg text-white">
+  <body class="min-h-screen bliand_mode bg-L_bg">
     <Header />
     <main class="max-w-5xl px-4 py-4 m-auto">
       <slot />
@@ -29,7 +29,7 @@ const { title } = Astro.props;
   <style is:global>
     html {
       font-family: system-ui, sans-serif;
-      background-size: 224px;
+      background-size: 1024px 100%;
       color-scheme: Dark light;
     }
   </style>

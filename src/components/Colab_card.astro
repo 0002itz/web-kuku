@@ -1,11 +1,12 @@
 ---
 interface Props {
+    key: string;
     colab_name: string;
     handle_tec: string;
     colab_email: string;
     colab_img: string;
 }
-const { colab_name, handle_tec, colab_email, colab_img } = Astro.props;
+const { colab_name, handle_tec, colab_email, colab_img, key } = Astro.props;
 ---
 
 <div

@@ -11,8 +11,9 @@ const contributors = await getCollection("contributors");
 
 <Layout title="Kukulc4n • Home">
   <Alert />
-  <div class="text-center p-4 gap-4">
+  <div id="Projects" class="text-center p-4 gap-4 text-Title_color">
     <p class="p-4">Projects:</p>
+
     <div
       class="conteiner lg:flex lg:felx-row md:flex md:flex-wrap flex flex-wrap place-self-center p-2 gap-4"
     >
@@ -24,6 +25,7 @@ const contributors = await getCollection("contributors");
             <a href={`/Projects/${slug}`}>
               <PreviwProjectCard
                 client:idle
+                key={slug}
                 project_name={p_name}
                 made_by={m_by}
                 tec_use={t_use}
@@ -35,22 +37,29 @@ const contributors = await getCollection("contributors");
       }
     </div>
   </div>
-  <div class="conteiner">
-    <p id="Contributors" class="p-4">Contributors:</p>
-    {
-      contributors.map((contributor) => {
-        const { slug, data } = contributor;
-        const { colab_name, tec, email, user_img } = data;
 
-        return (
-          <ColabCard
-            colab_name={colab_name}
-            handle_tec={tec}
-            colab_email={email}
-            colab_img={user_img}
-          />
-        );
-      })
-    }
+  <div class="conteiner">
+    <div>
+      <p id="Contributors" class="text-center text-Title_color p-4">
+        Contributors:
+      </p>
+
+      {
+        contributors.map((contributor) => {
+          const { slug, data } = contributor;
+          const { colab_name, tec, email, user_img } = data;
+
+          return (
+            <ColabCard
+              key={slug}
+              colab_name={colab_name}
+              handle_tec={tec}
+              colab_email={email}
+              colab_img={user_img}
+            />
+          );
+        })
+      }
+    </div>
   </div>
 </Layout>

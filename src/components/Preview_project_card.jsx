@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ProjectCard = ({ project_name, made_by, tec_use, images }) => {
+const ProjectCard = ({ project_name, made_by, tec_use, images, key }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Función para mover al siguiente slide
@@ -29,7 +29,7 @@ const ProjectCard = ({ project_name, made_by, tec_use, images }) => {
                         Array.isArray(images) &&
                         images.map((image, index) => (
                             <img src={image} alt={`Image ${index + 1}`}
-                                className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out ${index === currentIndex
+                                className={`absolute inset-0 w-32 h-32 rounded-md object-cover transition-transform duration-500 ease-in-out ${index === currentIndex
                                     ? "translate-x-0"
                                     : "translate-x-full"
                                     }`} />

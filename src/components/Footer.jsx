@@ -6,14 +6,14 @@ const Footer = () => {
             <div className="p-5">
                 <div className="grid grid-cols-3 justify-center text-center font-medium p-5 text-gray-500 sm:text-md darkt:text-gray-400">
                     <div>
-                        <a className="text-white" href="/">Kukulc4n.com © 2025 </a>
-                        <FooterButton>    
+                        <a className="text-Title_color" href="/">Kukulc4n.com © 2025 </a>
+                        <FooterButton>
                             <a href="/Terms&Conditions">Terms and Conditions</a>
                             <a href="/PrivacyPolicy">Privacy Policy</a>
                         </FooterButton>
                     </div>
                     <div>
-                        <h2 className="text-white">Contacto:</h2>
+                        <h2 className="text-Title_color">Contacto:</h2>
                         <FooterButton>
                             <a href="https://www.instagram.com/" slot="insta">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram">
@@ -38,7 +38,7 @@ const Footer = () => {
                         </FooterButton>
                     </div>
                     <div>
-                        <h2 className="text-white">Web Made By:</h2>
+                        <h2 className="text-Title_color">Web Made By:</h2>
                         <FooterButton>
                             0002itz
                         </FooterButton>

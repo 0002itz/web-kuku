@@ -1,7 +1,5 @@
 ---
 import ButtonMenu from "./ButtonMenu";
-import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
 ---
 
 <ButtonMenu client:load>
@@ -22,6 +20,6 @@ const projects = await getCollection("projects");
     href="#footer">Contact</a
   >
 </ButtonMenu>
-<h1 class="text-center text-4xl font-bold text-white">
+<h1 class="text-center text-4xl font-bold text-Title_color te">
   <a href="/">Kukulc4n 🚀</a>
 </h1>
