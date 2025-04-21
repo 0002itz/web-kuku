@@ -3,21 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-    .darke_mode {
-        --project_bg_card: 43, 116, 214;
-        --layout_bg: 17 24 39;
-        --bt_bg: 91 33 182;
-        --title_color: 255, 255, 255;
-        --subtitle_clor: 150, 149, 152;
-        background: rgba(var(--background), 0.5);
+    @media screen and (prefers-color-scheme: dark) {
+        :root {
+            --bt_menu: 129, 129, 129;
+            --colab_card_color: 99 102 241;
+            --project_bg_card: 43, 116, 214;
+            --border_card: 0, 0, 0;
+            --layout_bg: 255, 255, 255;
+            --bt_bg: 91, 33, 182;
+            --title_color: 0, 0, 0;
+            --subtitle_clor: 129, 128, 128;
+            background: rgba(var(--background), 0.5);
+        }
+
+        .dark {
+            --project_bg_card: 43, 116, 214;
+            --layout_bg: 17, 24, 39;
+            --bt_bg: 91, 33, 182;
+            --title_color: 255, 255, 255;
+            --subtitle_clor: 129, 128, 128;
+            background: rgba(var(--background), 0.5);
+        }
     }
 
-    .bliand_mode {
-        --project_bg_card: 255, 255, 255;
-        --layout_bg: 255, 255, 255;
-        --bt_bg: 91, 33, 182;
-        --title_color: 0, 0, 0;
-        --subtitle_clor: 150, 149, 152;
-        background: rgba(var(--background), 0.5);
-    }
 }

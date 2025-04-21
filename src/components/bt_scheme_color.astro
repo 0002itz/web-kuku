@@ -1,0 +1,18 @@
+---
+function toggleDarkMode() {
+    document.body.classList.toggle("dark_mode");
+    if (document.body.classList.contains("dark_mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark_mode");
+}
+---
+
+<button class="text-Title_color" id="bt_scheme_mode" onclick="toggleDarkMode()">
+    tongle
+</button>

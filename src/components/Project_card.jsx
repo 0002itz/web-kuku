@@ -22,7 +22,7 @@ const ProjectCard = ({ project_name, made_by, tec_use, images }) => {
     }, []);
 
     return (
-        <div className="container min-w-min max-w-fit flex flex-col items-center bg-blue-400 border-2 rounded-lg relative">
+        <div className="container min-w-min max-w-fit flex flex-col items-center bg-P_card_color border-2 border-Border_card rounded-lg relative">
             <div className="justify-self-center p-2">
                 <div className="size-32 relative overflow-hidden">
                     {

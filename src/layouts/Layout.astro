@@ -12,14 +12,14 @@ const { title } = Astro.props;
 
 <html lang="en" class="overflow-y-scroll hide-scrollbar">
   <head>
-    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta charset="UTF-8" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bliand_mode bg-L_bg">
+  <body class="min-h-screen light bg-L_bg">
     <Header />
     <main class="max-w-5xl px-4 py-4 m-auto">
       <slot />
