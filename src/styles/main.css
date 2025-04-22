@@ -8,7 +8,7 @@
             --bt_menu: 129, 129, 129;
             --colab_card_color: 99 102 241;
             --project_bg_card: 43, 116, 214;
-            --border_card: 0, 0, 0;
+            --border_card: 129, 129, 129;
             --layout_bg: 255, 255, 255;
             --bt_bg: 91, 33, 182;
             --title_color: 0, 0, 0;
@@ -17,7 +17,10 @@
         }
 
         .dark {
-            --project_bg_card: 43, 116, 214;
+            --bt_menu: 255, 255, 255;
+            --colab_card_color: 53, 11, 121;
+            --project_bg_card: 40, 15, 151;
+            --border_card: 129, 129, 129;
             --layout_bg: 17, 24, 39;
             --bt_bg: 91, 33, 182;
             --title_color: 255, 255, 255;
