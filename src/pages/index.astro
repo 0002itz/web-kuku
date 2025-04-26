@@ -5,8 +5,8 @@ import PreviwProjectCard from "../components/Preview_project_card.jsx";
 import Alert from "../components/Alert.astro";
 
 import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
-const contributors = await getCollection("contributors");
+const projects = await getCollection("Projects");
+const contributors = await getCollection("Contributors");
 ---
 
 <Layout title="Kukulc4n • Home">

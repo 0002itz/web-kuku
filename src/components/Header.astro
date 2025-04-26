@@ -1,9 +1,10 @@
 ---
 import ButtonMenu from "./ButtonMenu";
-import BtSchemeColor from "./bt_scheme_color.astro";
+import BT_theme from "../components/BT_theme.astro";
 ---
 
 <div class="flex flex-wrap justify-end items-center gap-4 class">
+  <BT_theme class="text-black" />
   <ButtonMenu client:load>
     <a
       class="border border-transparent hover:border-white hover:bg-Bt_bg cursor-pointer focus:ring-3 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-md inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2 hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-110 scale-90 gap-x-2 opacity-90 hover:opacity-100 p-1"
