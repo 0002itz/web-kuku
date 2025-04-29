@@ -1,3 +1,5 @@
+import { Children } from 'react'
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,css}'],
@@ -28,7 +30,19 @@ export default {
 				},
 				'.slider img:not(img:first-child)': {
 					display: 'none;'
-				}
+				},
+				'.theme-switch svg': {
+					fill: 'var(--title_color)'
+				},
+				'.theme-switch svg:last-child': {
+					display: 'none;'
+				},
+				'.dark .theme-switch svg:first-child': {
+					display: 'none;'
+				},
+				'.dark .theme-switch svg:last-child': {
+					display: 'block;'
+				},
 			};
 			addUtilities(newUtilities)
 		},
