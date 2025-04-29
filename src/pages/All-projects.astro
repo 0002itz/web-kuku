@@ -8,7 +8,9 @@ const projects = await getCollection("projects");
 
 <Layout title="kukulc4n • All Projects">
     <article>
-        <h1 class="text-center text-4xl p-4">ALL Projects</h1>
+        <h1 class="text-center text-4xl text-Subtitle_color p-4">
+            ALL Projects
+        </h1>
         <div
             class="conteiner flex flex-wrap md:flex md:flex-wrap place-self-center p-2 gap-4"
         >
@@ -20,6 +22,7 @@ const projects = await getCollection("projects");
                         <a href={`/Projects/${slug}`}>
                             <ProjectCard
                                 client:idle
+                                key={slug}
                                 project_name={p_name}
                                 made_by={m_by}
                                 tec_use={t_use}

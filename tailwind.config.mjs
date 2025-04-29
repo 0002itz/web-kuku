@@ -14,6 +14,7 @@ export default {
 				Bt_bg: "rgba(var(--bt_bg))",
 				Title_color: "rgba(var(--title_color))",
 				Subtitle_color: "rgba(var(--subtitle_color))",
+				Parafrafh_color: "rgba(var(--parafrafh_color))",
 			}
 		},
 	},
@@ -33,17 +34,16 @@ export default {
 				},
 				'.theme-switch': {
 					heigth: '50px',
-					width: '25px',
+					width: '50px',
 					padding: '0px',
 					'border-radius': '50%',
 					'justify-content': 'center',
 					display: 'flex',
-					position: 'fixed',
-					top: '8px',
-					right: '50px',
+					top: '5px',
+					right: '25px',
 				},
 				'.theme-switch svg': {
-					fill: 'var(--title_color)'
+					fill: 'var(--subtitle_color)'
 				},
 				'.theme-switch svg:last-child': {
 					display: 'none;'

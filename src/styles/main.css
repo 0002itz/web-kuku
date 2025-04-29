@@ -12,7 +12,8 @@
             --layout_bg: 255, 255, 255;
             --bt_bg: 91, 33, 182;
             --title_color: 0, 0, 0;
-            --subtitle_clor: 129, 128, 128;
+            --subtitle_color: 129, 128, 128;
+            --parafrafh_color: 255, 255, 255;
             background: rgba(var(--background), 0.5);
         }
 
@@ -24,7 +25,8 @@
             --layout_bg: 17, 24, 39;
             --bt_bg: 91, 33, 182;
             --title_color: 255, 255, 255;
-            --subtitle_clor: 129, 128, 128;
+            --subtitle_color: 129, 128, 128;
+            --parafrafh_color: 129, 128, 128;
             background: rgba(var(--background), 0.5);
         }
     }
