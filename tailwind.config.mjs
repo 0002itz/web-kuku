@@ -31,6 +31,17 @@ export default {
 				'.slider img:not(img:first-child)': {
 					display: 'none;'
 				},
+				'.theme-switch': {
+					heigth: '50px',
+					width: '25px',
+					padding: '0px',
+					'border-radius': '50%',
+					'justify-content': 'center',
+					display: 'flex',
+					position: 'fixed',
+					top: '8px',
+					right: '50px',
+				},
 				'.theme-switch svg': {
 					fill: 'var(--title_color)'
 				},
